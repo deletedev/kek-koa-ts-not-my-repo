@@ -13,7 +13,11 @@ export function buildCodePreview(code) {
 
 export async function buildFile(filename, content) {
   const filePath = getSnippetPath(filename)
-  await fs.writeFile(filePath, content, 'utf8')
+  try {
+    await fs.writeFile(filePath, content, 'utf8')
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 export function getSnippetPath(filename) {
@@ -21,5 +25,9 @@ export function getSnippetPath(filename) {
 }
 
 export async function deleteFile(filepath) {
-  await fs.unlink(filepath)
+  try {
+    await fs.unlink(filepath)
+  } catch (e) {
+    console.log(e)
+  }
 }
