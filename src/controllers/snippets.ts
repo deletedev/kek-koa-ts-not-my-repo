@@ -17,6 +17,6 @@ export default class {
 
     const snippets = await getFilteredSnippets(selectors)
 
-    ctx.body = JSON.stringify(snippets)
+    ctx.body = snippets
   }
 }
